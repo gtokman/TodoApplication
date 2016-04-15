@@ -15,6 +15,7 @@
 		02C31EC21CC187980022CB52 /* ToDoItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C31EC11CC187980022CB52 /* ToDoItemTests.swift */; };
 		02C31ED11CC189F60022CB52 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C31ED01CC189F60022CB52 /* ToDoItem.swift */; };
 		02C31EE11CC19C230022CB52 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C31EE01CC19C230022CB52 /* Location.swift */; };
+		02C31EE81CC19F860022CB52 /* LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C31EE71CC19F860022CB52 /* LocationTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		02C31EC11CC187980022CB52 /* ToDoItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToDoItemTests.swift; path = Model/ToDoItemTests.swift; sourceTree = "<group>"; };
 		02C31ED01CC189F60022CB52 /* ToDoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToDoItem.swift; path = Model/ToDoItem.swift; sourceTree = "<group>"; };
 		02C31EE01CC19C230022CB52 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = Model/Location.swift; sourceTree = "<group>"; };
+		02C31EE71CC19F860022CB52 /* LocationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationTests.swift; path = Model/LocationTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			children = (
 				02C31EB11CC159D00022CB52 /* Info.plist */,
 				02C31EC11CC187980022CB52 /* ToDoItemTests.swift */,
+				02C31EE71CC19F860022CB52 /* LocationTests.swift */,
 			);
 			path = TodoApplicationTests;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02C31EE81CC19F860022CB52 /* LocationTests.swift in Sources */,
 				02C31EC21CC187980022CB52 /* ToDoItemTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
