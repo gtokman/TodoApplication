@@ -70,4 +70,12 @@ class LocationTests: XCTestCase {
 	func testWhenLongitudeDifferes_ShouldBeNotEqual() {
 		performNotEqualTestWithLocationProperties("Home", secondName: "Home", firstLongLat: (0.0, 1.0), secondLongLat: (0.0, 0.0))
 	}
+
+	func testWhenOneHasCoordinateAndTheOtherDoesnt_ShouldBeNotEqual() {
+		performNotEqualTestWithLocationProperties("Home", secondName: "Home", firstLongLat: (0.0, 0.0), secondLongLat: nil)
+	}
+
+	func testWhenNameDifferes_ShouldBeNotEqual() {
+		performNotEqualTestWithLocationProperties("Home", secondName: "Office", firstLongLat: nil, secondLongLat: nil)
+	}
 }
