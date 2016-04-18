@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		027CE7611CC1A63D002AFDDF /* ItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027CE7601CC1A63D002AFDDF /* ItemManager.swift */; };
+		02B5F3F51CC53753003535B2 /* ItemListViewControllersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B5F3F41CC53753003535B2 /* ItemListViewControllersTests.swift */; };
+		02B5F3F91CC53835003535B2 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B5F3F81CC53835003535B2 /* ItemListViewController.swift */; };
+		02B5F4051CC53D89003535B2 /* ItemListDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B5F4041CC53D89003535B2 /* ItemListDataProvider.swift */; };
 		02C31E9B1CC159CF0022CB52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C31E9A1CC159CF0022CB52 /* AppDelegate.swift */; };
-		02C31E9D1CC159CF0022CB52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C31E9C1CC159CF0022CB52 /* ViewController.swift */; };
 		02C31EA01CC159CF0022CB52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02C31E9E1CC159CF0022CB52 /* Main.storyboard */; };
 		02C31EA21CC159D00022CB52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C31EA11CC159D00022CB52 /* Assets.xcassets */; };
 		02C31EA51CC159D00022CB52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02C31EA31CC159D00022CB52 /* LaunchScreen.storyboard */; };
@@ -32,9 +34,11 @@
 
 /* Begin PBXFileReference section */
 		027CE7601CC1A63D002AFDDF /* ItemManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemManager.swift; path = Model/ItemManager.swift; sourceTree = "<group>"; };
+		02B5F3F41CC53753003535B2 /* ItemListViewControllersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemListViewControllersTests.swift; path = Controller/ItemListViewControllersTests.swift; sourceTree = "<group>"; };
+		02B5F3F81CC53835003535B2 /* ItemListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemListViewController.swift; path = Controller/ItemListViewController.swift; sourceTree = "<group>"; };
+		02B5F4041CC53D89003535B2 /* ItemListDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemListDataProvider.swift; path = Controller/ItemListDataProvider.swift; sourceTree = "<group>"; };
 		02C31E971CC159CF0022CB52 /* TodoApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C31E9A1CC159CF0022CB52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		02C31E9C1CC159CF0022CB52 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		02C31E9F1CC159CF0022CB52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		02C31EA11CC159D00022CB52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02C31EA41CC159D00022CB52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -66,6 +70,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02B5F3F21CC536D1003535B2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				02C31ED01CC189F60022CB52 /* ToDoItem.swift */,
+				02C31EE01CC19C230022CB52 /* Location.swift */,
+				027CE7601CC1A63D002AFDDF /* ItemManager.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		02B5F3F31CC536EB003535B2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				02C31EC11CC187980022CB52 /* ToDoItemTests.swift */,
+				02C31EE71CC19F860022CB52 /* LocationTests.swift */,
+				02C31EEE1CC1A4E90022CB52 /* ItemManagerTests.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		02C31E8E1CC159CF0022CB52 = {
 			isa = PBXGroup;
 			children = (
@@ -88,14 +112,13 @@
 			isa = PBXGroup;
 			children = (
 				02C31E9A1CC159CF0022CB52 /* AppDelegate.swift */,
-				02C31E9C1CC159CF0022CB52 /* ViewController.swift */,
 				02C31E9E1CC159CF0022CB52 /* Main.storyboard */,
 				02C31EA11CC159D00022CB52 /* Assets.xcassets */,
 				02C31EA31CC159D00022CB52 /* LaunchScreen.storyboard */,
 				02C31EA61CC159D00022CB52 /* Info.plist */,
-				02C31ED01CC189F60022CB52 /* ToDoItem.swift */,
-				02C31EE01CC19C230022CB52 /* Location.swift */,
-				027CE7601CC1A63D002AFDDF /* ItemManager.swift */,
+				02B5F3F21CC536D1003535B2 /* Model */,
+				02B5F3F81CC53835003535B2 /* ItemListViewController.swift */,
+				02B5F4041CC53D89003535B2 /* ItemListDataProvider.swift */,
 			);
 			path = TodoApplication;
 			sourceTree = "<group>";
@@ -104,9 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				02C31EB11CC159D00022CB52 /* Info.plist */,
-				02C31EC11CC187980022CB52 /* ToDoItemTests.swift */,
-				02C31EE71CC19F860022CB52 /* LocationTests.swift */,
-				02C31EEE1CC1A4E90022CB52 /* ItemManagerTests.swift */,
+				02B5F3F31CC536EB003535B2 /* Model */,
+				02B5F3F41CC53753003535B2 /* ItemListViewControllersTests.swift */,
 			);
 			path = TodoApplicationTests;
 			sourceTree = "<group>";
@@ -212,11 +234,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02C31E9D1CC159CF0022CB52 /* ViewController.swift in Sources */,
 				027CE7611CC1A63D002AFDDF /* ItemManager.swift in Sources */,
+				02B5F4051CC53D89003535B2 /* ItemListDataProvider.swift in Sources */,
 				02C31E9B1CC159CF0022CB52 /* AppDelegate.swift in Sources */,
 				02C31EE11CC19C230022CB52 /* Location.swift in Sources */,
 				02C31ED11CC189F60022CB52 /* ToDoItem.swift in Sources */,
+				02B5F3F91CC53835003535B2 /* ItemListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02C31EEF1CC1A4E90022CB52 /* ItemManagerTests.swift in Sources */,
+				02B5F3F51CC53753003535B2 /* ItemListViewControllersTests.swift in Sources */,
 				02C31EE81CC19F860022CB52 /* LocationTests.swift in Sources */,
 				02C31EC21CC187980022CB52 /* ToDoItemTests.swift in Sources */,
 			);
