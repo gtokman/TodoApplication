@@ -12,6 +12,9 @@
 		028DD1801CC6C7650068B2B4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028DD17F1CC6C7650068B2B4 /* MapKit.framework */; };
 		028DD1881CC6D7300068B2B4 /* InputViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028DD1871CC6D7300068B2B4 /* InputViewControllerTests.swift */; };
 		028DD18D1CC6D8590068B2B4 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028DD18C1CC6D8590068B2B4 /* InputViewController.swift */; };
+		028DD1A41CC7FC1E0068B2B4 /* APIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028DD1A31CC7FC1E0068B2B4 /* APIClientTests.swift */; };
+		028DD1A91CC810D10068B2B4 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028DD1A81CC810D10068B2B4 /* APIClient.swift */; };
+		028DD1B21CC823B00068B2B4 /* KeychainAccessible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028DD1B11CC823B00068B2B4 /* KeychainAccessible.swift */; };
 		02B5F3F51CC53753003535B2 /* ItemListViewControllersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B5F3F41CC53753003535B2 /* ItemListViewControllersTests.swift */; };
 		02B5F3F91CC53835003535B2 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B5F3F81CC53835003535B2 /* ItemListViewController.swift */; };
 		02B5F4051CC53D89003535B2 /* ItemListDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02B5F4041CC53D89003535B2 /* ItemListDataProvider.swift */; };
@@ -46,6 +49,9 @@
 		028DD17F1CC6C7650068B2B4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		028DD1871CC6D7300068B2B4 /* InputViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InputViewControllerTests.swift; path = Controller/InputViewControllerTests.swift; sourceTree = "<group>"; };
 		028DD18C1CC6D8590068B2B4 /* InputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InputViewController.swift; path = Controller/InputViewController.swift; sourceTree = "<group>"; };
+		028DD1A31CC7FC1E0068B2B4 /* APIClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClientTests.swift; sourceTree = "<group>"; };
+		028DD1A81CC810D10068B2B4 /* APIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		028DD1B11CC823B00068B2B4 /* KeychainAccessible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainAccessible.swift; sourceTree = "<group>"; };
 		02B5F3F41CC53753003535B2 /* ItemListViewControllersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemListViewControllersTests.swift; path = Controller/ItemListViewControllersTests.swift; sourceTree = "<group>"; };
 		02B5F3F81CC53835003535B2 /* ItemListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemListViewController.swift; path = Controller/ItemListViewController.swift; sourceTree = "<group>"; };
 		02B5F4041CC53D89003535B2 /* ItemListDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemListDataProvider.swift; path = Controller/ItemListDataProvider.swift; sourceTree = "<group>"; };
@@ -95,6 +101,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		028DD19F1CC7F5EB0068B2B4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				02B5F3F81CC53835003535B2 /* ItemListViewController.swift */,
+				02B5F4041CC53D89003535B2 /* ItemListDataProvider.swift */,
+				02B5F4171CC58356003535B2 /* ItemCellTableViewCell.swift */,
+				02EF99D51CC6C1FA000B51AE /* DetailViewController.swift */,
+				028DD18C1CC6D8590068B2B4 /* InputViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		028DD1A01CC7F60F0068B2B4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				02B5F3F41CC53753003535B2 /* ItemListViewControllersTests.swift */,
+				02B5F40B1CC54501003535B2 /* ItemListDataProviderTests.swift */,
+				0237A0A41CC6AAF000D67E2A /* ItemCellTests.swift */,
+				02EF99D01CC6C0C1000B51AE /* DetailViewControllerTests.swift */,
+				028DD1871CC6D7300068B2B4 /* InputViewControllerTests.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		02B5F3F21CC536D1003535B2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +148,7 @@
 		02C31E8E1CC159CF0022CB52 = {
 			isa = PBXGroup;
 			children = (
+				028DD1B11CC823B00068B2B4 /* KeychainAccessible.swift */,
 				028DD1841CC6C7750068B2B4 /* Frameworks */,
 				02C31E991CC159CF0022CB52 /* TodoApplication */,
 				02C31EAE1CC159D00022CB52 /* TodoApplicationTests */,
@@ -143,11 +174,8 @@
 				02C31EA31CC159D00022CB52 /* LaunchScreen.storyboard */,
 				02C31EA61CC159D00022CB52 /* Info.plist */,
 				02B5F3F21CC536D1003535B2 /* Model */,
-				02B5F3F81CC53835003535B2 /* ItemListViewController.swift */,
-				02B5F4041CC53D89003535B2 /* ItemListDataProvider.swift */,
-				02B5F4171CC58356003535B2 /* ItemCellTableViewCell.swift */,
-				02EF99D51CC6C1FA000B51AE /* DetailViewController.swift */,
-				028DD18C1CC6D8590068B2B4 /* InputViewController.swift */,
+				028DD19F1CC7F5EB0068B2B4 /* Controller */,
+				028DD1A81CC810D10068B2B4 /* APIClient.swift */,
 			);
 			path = TodoApplication;
 			sourceTree = "<group>";
@@ -157,11 +185,8 @@
 			children = (
 				02C31EB11CC159D00022CB52 /* Info.plist */,
 				02B5F3F31CC536EB003535B2 /* Model */,
-				02B5F3F41CC53753003535B2 /* ItemListViewControllersTests.swift */,
-				02B5F40B1CC54501003535B2 /* ItemListDataProviderTests.swift */,
-				0237A0A41CC6AAF000D67E2A /* ItemCellTests.swift */,
-				02EF99D01CC6C0C1000B51AE /* DetailViewControllerTests.swift */,
-				028DD1871CC6D7300068B2B4 /* InputViewControllerTests.swift */,
+				028DD1A01CC7F60F0068B2B4 /* Controller */,
+				028DD1A31CC7FC1E0068B2B4 /* APIClientTests.swift */,
 			);
 			path = TodoApplicationTests;
 			sourceTree = "<group>";
@@ -274,7 +299,9 @@
 			files = (
 				028DD18D1CC6D8590068B2B4 /* InputViewController.swift in Sources */,
 				027CE7611CC1A63D002AFDDF /* ItemManager.swift in Sources */,
+				028DD1B21CC823B00068B2B4 /* KeychainAccessible.swift in Sources */,
 				02B5F4051CC53D89003535B2 /* ItemListDataProvider.swift in Sources */,
+				028DD1A91CC810D10068B2B4 /* APIClient.swift in Sources */,
 				02C31E9B1CC159CF0022CB52 /* AppDelegate.swift in Sources */,
 				02C31EE11CC19C230022CB52 /* Location.swift in Sources */,
 				02C31ED11CC189F60022CB52 /* ToDoItem.swift in Sources */,
@@ -294,6 +321,7 @@
 				028DD1881CC6D7300068B2B4 /* InputViewControllerTests.swift in Sources */,
 				02B5F3F51CC53753003535B2 /* ItemListViewControllersTests.swift in Sources */,
 				02EF99D11CC6C0C1000B51AE /* DetailViewControllerTests.swift in Sources */,
+				028DD1A41CC7FC1E0068B2B4 /* APIClientTests.swift in Sources */,
 				02C31EE81CC19F860022CB52 /* LocationTests.swift in Sources */,
 				02C31EC21CC187980022CB52 /* ToDoItemTests.swift in Sources */,
 			);
