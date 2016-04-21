@@ -43,4 +43,99 @@ class ItemListViewControllersTests: XCTestCase {
 	func testViewDidLoad_ShouldSetDelegateAndDataSourceToTheSameObject() {
 		XCTAssertEqual(sut.tableView.dataSource as? ItemListDataProvider, sut.tableView.delegate as? ItemListDataProvider)
 	}
+
+	func testItemListViewController_HasAddBarButtonWithSelfAsTarget() {
+		XCTAssertEqual(sut.navigationItem.rightBarButtonItem?.target as? UIViewController, sut)
+	}
+
+	func testAddItem_PresentsAddItemViewController() {
+		XCTAssertNil(sut.presentedViewController)
+
+		guard let addButton = sut.navigationItem.rightBarButtonItem else { XCTFail(); return }
+
+		UIApplication.sharedApplication().keyWindow?.rootViewController = sut
+
+		sut.performSelector(addButton.action, withObject: addButton)
+
+		XCTAssertNotNil(sut.presentedViewController)
+		XCTAssertTrue(sut.presentedViewController is InputViewController)
+
+		let inputViewController = sut.presentedViewController as! InputViewController
+		XCTAssertNotNil(inputViewController.titleTextField)
+	}
+
+	func testItemListVC_SharesItemManagerWithInputVC() {
+		XCTAssertNil(sut.presentedViewController)
+
+		guard let addButton = sut.navigationItem.rightBarButtonItem else { XCTFail(); return }
+
+		UIApplication.sharedApplication().keyWindow?.rootViewController = sut
+
+		sut.performSelector(addButton.action, withObject: addButton)
+
+		XCTAssertNotNil(sut.presentedViewController)
+		XCTAssertTrue(sut.presentedViewController is InputViewController)
+
+		let inputViewController = sut.presentedViewController as! InputViewController
+
+		guard let inputItemManager = inputViewController.itemManager else { XCTFail(); return }
+		XCTAssertTrue(sut.itemManager === inputItemManager)
+	}
+
+	func testViewdidLoad_SetsItemManagerToDataProvider() {
+		XCTAssertTrue(sut.itemManager === sut.dataProvider.itemManager)
+	}
+
+	func test_TableViewDidReloadData() {
+		let mockTableView = MockTableView()
+		sut.tableView = mockTableView
+		sut.beginAppearanceTransition(true, animated: true)
+		sut.endAppearanceTransition()
+
+		XCTAssertTrue(mockTableView.dataDidReload)
+	}
+
+	func testItemSelectedNofification_PushesDetailVC() {
+		let mockNavigationController = MockNavigationController(rootViewController: sut)
+
+		UIApplication.sharedApplication().keyWindow?.rootViewController = mockNavigationController
+
+		_ = sut.view
+
+		NSNotificationCenter.defaultCenter().postNotificationName("ItemSelectionNotification", object: self, userInfo: ["index": 1])
+
+		guard let detailViewController = mockNavigationController.pushedViewController as? DetailViewController else { XCTFail(); return }
+
+		guard let detailItemManager = detailViewController.itemInfo?.0 else { XCTFail(); return }
+
+		guard let index = detailViewController.itemInfo?.1 else { XCTFail(); return }
+
+		_ = detailViewController.view
+
+		XCTAssertNotNil(detailViewController.titleLabel)
+
+		XCTAssertTrue(detailItemManager === sut.itemManager)
+
+		XCTAssertEqual(index, 1)
+	}
+}
+
+extension ItemListViewControllersTests {
+
+	class MockNavigationController: UINavigationController {
+		var pushedViewController: UIViewController?
+
+		override func pushViewController(viewController: UIViewController, animated: Bool) {
+			pushedViewController = viewController
+			super.pushViewController(viewController, animated: animated)
+		}
+	}
+
+	class MockTableView: UITableView {
+		var dataDidReload = false
+
+		override func reloadData() {
+			dataDidReload = true
+		}
+	}
 }

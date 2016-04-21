@@ -12,7 +12,11 @@ enum Section: Int {
 	case ToDo, Done
 }
 
-class ItemListDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate {
+@objc protocol ItemManagerSettable {
+	var itemManager: ItemManager? { get set }
+}
+
+class ItemListDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate, ItemManagerSettable {
 
 	// MARK: - Properties
 
@@ -77,6 +81,17 @@ class ItemListDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate
 	}
 
 	// MARK: - TableViewDelegate
+
+	func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+		guard let itemSection = Section(rawValue: indexPath.section) else { fatalError() }
+
+		switch itemSection {
+		case .ToDo:
+			NSNotificationCenter.defaultCenter().postNotificationName("ItemSelectionNotification", object: self, userInfo: ["index": indexPath.row])
+		default:
+			break
+		}
+	}
 
 	func tableView(tableView: UITableView, titleForDeleteConfirmationButtonForRowAtIndexPath indexPath: NSIndexPath) -> String? {
 
