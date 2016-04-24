@@ -10,7 +10,6 @@ import XCTest
 @testable import TodoApplication
 
 class ToDoItemTests: XCTestCase {
-
 	override func setUp() {
 		super.setUp()
 		// Put setup code here. This method is called before the invocation of each test method in the class.
@@ -95,5 +94,24 @@ class ToDoItemTests: XCTestCase {
 
 		// Test
 		XCTAssertNotEqual(firstItem, secondItem)
+	}
+
+	func test_HasPlistDictionaryProperty() {
+		let item = ToDoItem(title: "First")
+		let dictionary = item.plistDict
+
+		XCTAssertNotNil(dictionary)
+		XCTAssertTrue(dictionary is NSDictionary)
+	}
+
+	func test_CanBeCreatedFromPlistDictionary() {
+		let location = Location(name: "Home")
+		let item = ToDoItem(title: "The Title", itemDescription: "The Description", timestamp: 1.0, location: location)
+
+		let dict = item.plistDict
+
+		let recreatedItem = ToDoItem(dict: dict)
+
+		XCTAssertEqual(item, recreatedItem)
 	}
 }

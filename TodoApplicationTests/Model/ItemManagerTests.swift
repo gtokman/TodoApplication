@@ -10,7 +10,6 @@ import XCTest
 @testable import TodoApplication
 
 class ItemManagerTests: XCTestCase {
-
 	var sut: ItemManager!
 
 	override func setUp() {
@@ -22,16 +21,18 @@ class ItemManagerTests: XCTestCase {
 	override func tearDown() {
 		// Put teardown code here. This method is called after the invocation of each test method in the class.
 		super.tearDown()
+
+		// Disable all tests to be written to disc
+		sut.removeAllItems()
+		sut = nil
 	}
 
 	func testToDoCount_Initially_ShouldBeZero() {
-
 		// Test
 		XCTAssertEqual(sut.toDoCount, 0, "Initially toDo count should be 0")
 	}
 
 	func testDoneCount_Initially_ShouldBeZero() {
-
 		// Test
 		XCTAssertEqual(sut.doneCount, 0, "Initially done count should be 0")
 	}
@@ -107,5 +108,27 @@ class ItemManagerTests: XCTestCase {
 		sut.addItem(ToDoItem(title: "First"))
 
 		XCTAssertEqual(sut.toDoCount, 1)
+	}
+
+	func test_ToDoItemsGetSerialized() {
+		var itemManager: ItemManager? = ItemManager()
+
+		let firstItem = ToDoItem(title: "First")
+		itemManager!.addItem(firstItem)
+
+		let secondItem = ToDoItem(title: "Second")
+		itemManager!.addItem(secondItem)
+
+		NSNotificationCenter.defaultCenter().postNotificationName(UIApplicationWillResignActiveNotification, object: nil)
+
+		itemManager = nil
+
+		// Test
+		XCTAssertNil(itemManager)
+
+		itemManager = ItemManager()
+		XCTAssertEqual(itemManager?.toDoCount, 2)
+		XCTAssertEqual(itemManager?.itemAtIndex(0), firstItem)
+		XCTAssertEqual(itemManager?.itemAtIndex(1), secondItem)
 	}
 }

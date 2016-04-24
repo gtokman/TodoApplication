@@ -11,7 +11,6 @@ import CoreLocation
 @testable import TodoApplication
 
 class DetailViewControllerTests: XCTestCase {
-
 	// MARK: - Properties
 
 	var sut: DetailViewController!
@@ -28,10 +27,11 @@ class DetailViewControllerTests: XCTestCase {
 	override func tearDown() {
 		// Put teardown code here. This method is called after the invocation of each test method in the class.
 		super.tearDown()
+
+		sut.itemInfo?.0.removeAllItems()
 	}
 
 	func testDetailViewController_HasLabelsLabels() {
-
 		XCTAssertNotNil(sut.titleLabel)
 		XCTAssertNotNil(sut.dateLabel)
 		XCTAssertNotNil(sut.locationLabel)

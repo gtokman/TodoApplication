@@ -11,7 +11,6 @@ import CoreLocation
 @testable import TodoApplication
 
 class LocationTests: XCTestCase {
-
 	override func setUp() {
 		super.setUp()
 		// Put setup code here. This method is called before the invocation of each test method in the class.
@@ -39,7 +38,6 @@ class LocationTests: XCTestCase {
 	}
 
 	func performNotEqualTestWithLocationProperties(firstName: String, secondName: String, firstLongLat: (Double, Double)?, secondLongLat: (Double, Double)?, line: UInt = #line) {
-
 		let firstCoord: CLLocationCoordinate2D?
 
 		if let firstLongLat = firstLongLat {
@@ -77,5 +75,15 @@ class LocationTests: XCTestCase {
 
 	func testWhenNameDifferes_ShouldBeNotEqual() {
 		performNotEqualTestWithLocationProperties("Home", secondName: "Office", firstLongLat: nil, secondLongLat: nil)
+	}
+
+	func test_CanBeSerializedAndDeserialized() {
+		let location = Location(name: "Home", coordinate: CLLocationCoordinate2DMake(50.0, 6.0))
+
+		let dict = location.plistDict
+
+		XCTAssertNotNil(dict)
+		let recreatedLocation = Location(dict: dict)
+		XCTAssertEqual(location, recreatedLocation)
 	}
 }
