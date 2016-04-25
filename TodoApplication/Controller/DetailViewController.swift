@@ -10,7 +10,6 @@ import UIKit
 import MapKit
 
 class DetailViewController: UIViewController {
-
 	// MARK: - Properties
 
 	@IBOutlet weak var titleLabel: UILabel!
@@ -31,7 +30,9 @@ class DetailViewController: UIViewController {
 	override func viewWillAppear(animated: Bool) {
 		super.viewWillAppear(animated)
 
-		guard let itemInfo = itemInfo else { return }
+		guard let itemInfo = itemInfo
+		else { fatalError() }
+
 		let item = itemInfo.0.itemAtIndex(itemInfo.1)
 
 		titleLabel.text = item.title

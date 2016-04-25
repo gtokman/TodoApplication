@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0237A0A51CC6AAF000D67E2A /* ItemCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0237A0A41CC6AAF000D67E2A /* ItemCellTests.swift */; };
+		02765AFD1CCC5AA200C8900B /* PeppyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02765AFC1CCC5AA200C8900B /* PeppyUITests.swift */; };
 		027CE7611CC1A63D002AFDDF /* ItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027CE7601CC1A63D002AFDDF /* ItemManager.swift */; };
 		028DD1801CC6C7650068B2B4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028DD17F1CC6C7650068B2B4 /* MapKit.framework */; };
 		028DD1881CC6D7300068B2B4 /* InputViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028DD1871CC6D7300068B2B4 /* InputViewControllerTests.swift */; };
@@ -35,6 +36,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		02765AFF1CCC5AA200C8900B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 02C31E8F1CC159CF0022CB52 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 02C31E961CC159CF0022CB52;
+			remoteInfo = TodoApplication;
+		};
 		02C31EAC1CC159D00022CB52 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 02C31E8F1CC159CF0022CB52 /* Project object */;
@@ -46,6 +54,9 @@
 
 /* Begin PBXFileReference section */
 		0237A0A41CC6AAF000D67E2A /* ItemCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCellTests.swift; path = Controller/ItemCellTests.swift; sourceTree = "<group>"; };
+		02765AFA1CCC5AA200C8900B /* PeppyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PeppyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		02765AFC1CCC5AA200C8900B /* PeppyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeppyUITests.swift; sourceTree = "<group>"; };
+		02765AFE1CCC5AA200C8900B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		027CE7601CC1A63D002AFDDF /* ItemManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemManager.swift; path = Model/ItemManager.swift; sourceTree = "<group>"; };
 		028DD17F1CC6C7650068B2B4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		028DD1871CC6D7300068B2B4 /* InputViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InputViewControllerTests.swift; path = Controller/InputViewControllerTests.swift; sourceTree = "<group>"; };
@@ -77,6 +88,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		02765AF71CCC5AA200C8900B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		02C31E941CC159CF0022CB52 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -95,6 +113,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02765AFB1CCC5AA200C8900B /* PeppyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				02765AFC1CCC5AA200C8900B /* PeppyUITests.swift */,
+				02765AFE1CCC5AA200C8900B /* Info.plist */,
+			);
+			path = PeppyUITests;
+			sourceTree = "<group>";
+		};
 		028DD1841CC6C7750068B2B4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +181,7 @@
 				028DD1841CC6C7750068B2B4 /* Frameworks */,
 				02C31E991CC159CF0022CB52 /* TodoApplication */,
 				02C31EAE1CC159D00022CB52 /* TodoApplicationTests */,
+				02765AFB1CCC5AA200C8900B /* PeppyUITests */,
 				02C31E981CC159CF0022CB52 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -163,6 +191,7 @@
 			children = (
 				02C31E971CC159CF0022CB52 /* TodoApplication.app */,
 				02C31EAB1CC159D00022CB52 /* TodoApplicationTests.xctest */,
+				02765AFA1CCC5AA200C8900B /* PeppyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -197,6 +226,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		02765AF91CCC5AA200C8900B /* PeppyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02765B031CCC5AA200C8900B /* Build configuration list for PBXNativeTarget "PeppyUITests" */;
+			buildPhases = (
+				02765AF61CCC5AA200C8900B /* Sources */,
+				02765AF71CCC5AA200C8900B /* Frameworks */,
+				02765AF81CCC5AA200C8900B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				02765B001CCC5AA200C8900B /* PBXTargetDependency */,
+			);
+			name = PeppyUITests;
+			productName = PeppyUITests;
+			productReference = 02765AFA1CCC5AA200C8900B /* PeppyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		02C31E961CC159CF0022CB52 /* TodoApplication */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 02C31EB41CC159D00022CB52 /* Build configuration list for PBXNativeTarget "TodoApplication" */;
@@ -242,8 +289,13 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = garytokman;
 				TargetAttributes = {
+					02765AF91CCC5AA200C8900B = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 02C31E961CC159CF0022CB52;
+					};
 					02C31E961CC159CF0022CB52 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = NTP2A7PJM8;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
@@ -271,11 +323,19 @@
 			targets = (
 				02C31E961CC159CF0022CB52 /* TodoApplication */,
 				02C31EAA1CC159D00022CB52 /* TodoApplicationTests */,
+				02765AF91CCC5AA200C8900B /* PeppyUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		02765AF81CCC5AA200C8900B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		02C31E951CC159CF0022CB52 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -296,6 +356,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		02765AF61CCC5AA200C8900B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02765AFD1CCC5AA200C8900B /* PeppyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		02C31E931CC159CF0022CB52 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -334,6 +402,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		02765B001CCC5AA200C8900B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 02C31E961CC159CF0022CB52 /* TodoApplication */;
+			targetProxy = 02765AFF1CCC5AA200C8900B /* PBXContainerItemProxy */;
+		};
 		02C31EAD1CC159D00022CB52 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 02C31E961CC159CF0022CB52 /* TodoApplication */;
@@ -361,6 +434,28 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		02765B011CCC5AA200C8900B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PeppyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.garytokman.PeppyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = TodoApplication;
+			};
+			name = Debug;
+		};
+		02765B021CCC5AA200C8900B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PeppyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.garytokman.PeppyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = TodoApplication;
+			};
+			name = Release;
+		};
 		02C31EB21CC159D00022CB52 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -448,10 +543,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TodoApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.garytokman.TodoApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -459,10 +557,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TodoApplication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.garytokman.TodoApplication;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -493,6 +594,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		02765B031CCC5AA200C8900B /* Build configuration list for PBXNativeTarget "PeppyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02765B011CCC5AA200C8900B /* Debug */,
+				02765B021CCC5AA200C8900B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		02C31E921CC159CF0022CB52 /* Build configuration list for PBXProject "TodoApplication" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

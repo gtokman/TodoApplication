@@ -11,7 +11,6 @@ import CoreLocation
 @testable import TodoApplication
 
 class InputViewControllerTests: XCTestCase {
-
 	// MARK: - Properties
 	var sut: InputViewController!
 	var placemark: MockPlacemark!
@@ -44,27 +43,46 @@ class InputViewControllerTests: XCTestCase {
 	}
 
 	func testSave_UsesGeocoderToGetCoordinateFromAddress() {
-		sut.titleTextField.text = "Test Title"
-		sut.dateTextField.text = "02/22/2016"
-		sut.locationTextField.text = "Office"
-		sut.addressTextField.text = "Infinite Loop 1, Cupertino"
-		sut.descriptionTextField.text = "Test Description"
+		let mockInputViewController = MockInputViewcontroller()
+
+		mockInputViewController.titleTextField = UITextField()
+		mockInputViewController.dateTextField = UITextField()
+		mockInputViewController.locationTextField = UITextField()
+		mockInputViewController.addressTextField = UITextField()
+		mockInputViewController.descriptionTextField = UITextField()
+
+		mockInputViewController.titleTextField.text = "Test Title"
+		mockInputViewController.dateTextField.text = "02/22/2016"
+		mockInputViewController.locationTextField.text = "Office"
+		mockInputViewController.addressTextField.text = "Infinite Loop 1, Cupertino"
+		mockInputViewController.descriptionTextField.text = "Test Description"
 
 		let mockGeocoder = MockGeocoder()
-		sut.geocoder = mockGeocoder
+		mockInputViewController.geocoder = mockGeocoder
 
-		sut.itemManager = ItemManager()
+		mockInputViewController.itemManager = ItemManager()
 
-		sut.save()
+		let expectation = expectationWithDescription("bla")
+
+		mockInputViewController.completionHandler = {
+			expectation.fulfill()
+		}
+
+		mockInputViewController.save()
 
 		placemark = MockPlacemark()
-		let coordinate = CLLocationCoordinate2DMake(37.3316851, -122.0300674)
+		let coordinate = CLLocationCoordinate2DMake(37.331685100000001, -122.03006739999999)
 		placemark.mockCoordinate = coordinate
 		mockGeocoder.completionHandler?([placemark], nil)
 
-		let item = sut.itemManager?.itemAtIndex(0)
+		waitForExpectationsWithTimeout(1, handler: nil)
 
-		let testItem = ToDoItem(title: "Test Title", itemDescription: "Test Description", timestamp: 1456117200, location: Location(name: "Office", coordinate: coordinate))
+		let item = mockInputViewController.itemManager?.itemAtIndex(0)
+
+		let testItem = ToDoItem(title: "Test Title",
+			itemDescription: "Test Description",
+			timestamp: 1456117200.0,
+			location: Location(name: "Office", coordinate: coordinate))
 
 		XCTAssertEqual(item, testItem)
 	}
@@ -112,7 +130,6 @@ class InputViewControllerTests: XCTestCase {
 	}
 
 	func test_GeocoderWorksAsExpected() {
-
 		let expectation = expectationWithDescription("Wait for geocode")
 
 		CLGeocoder().geocodeAddressString("Infinite Loop 1, Cupertino") { (placeMarks, error) in
@@ -153,16 +170,16 @@ class InputViewControllerTests: XCTestCase {
 
 		XCTAssertTrue(mockInputViewController.dismissGotCalled)
 	}
-
 }
 
 extension InputViewControllerTests {
-
 	class MockInputViewcontroller: InputViewController {
 		var dismissGotCalled = false
+		var completionHandler: (() -> Void)?
 
 		override func dismissViewControllerAnimated(flag: Bool, completion: (() -> Void)?) {
 			dismissGotCalled = true
+			completionHandler?()
 		}
 	}
 

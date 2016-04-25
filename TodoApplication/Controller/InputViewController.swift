@@ -10,7 +10,6 @@ import UIKit
 import CoreLocation
 
 class InputViewController: UIViewController {
-
 	// MARK: - Properties
 
 	lazy var geocoder = CLGeocoder()
@@ -30,10 +29,9 @@ class InputViewController: UIViewController {
 	@IBOutlet weak var saveButton: UIButton!
 	@IBOutlet weak var cancelButton: UIButton!
 
-	// MARK: - Helper Functions
+	// MARK: - Actions
 
 	@IBAction func save() {
-
 		guard let titleString = titleTextField.text where titleString.characters.count > 0 else {
 			return
 		}
@@ -57,20 +55,24 @@ class InputViewController: UIViewController {
 
 		if let locationName = locationTextField.text where locationName.characters.count > 0 {
 			if let address = addressTextField.text where address.characters.count > 0 {
-
 				geocoder.geocodeAddressString(address) { [unowned self](placeMarks, error) in
 
 					let placeMark = placeMarks?.first
 
 					let item = ToDoItem(title: titleString, itemDescription: descriptionString, timestamp: date?.timeIntervalSince1970, location: Location(name: locationName, coordinate: placeMark?.location?.coordinate))
 
-					self.itemManager?.addItem(item)
+					dispatch_async(dispatch_get_main_queue()) {
+						// Add item and dismiss view
+						self.itemManager?.addItem(item)
+						self.dismissViewControllerAnimated(true, completion: nil)
+					}
 				}
 			}
 			else {
 				let item = ToDoItem(title: titleString, itemDescription: descriptionString, timestamp: date?.timeIntervalSince1970, location: Location(name: "Office"))
 
 				itemManager?.addItem(item)
+				dismissViewControllerAnimated(true, completion: nil)
 			}
 		}
 
@@ -78,9 +80,7 @@ class InputViewController: UIViewController {
 			let item = ToDoItem(title: titleString)
 
 			itemManager?.addItem(item)
+			dismissViewControllerAnimated(true, completion: nil)
 		}
-
-		// Dismiss
-		dismissViewControllerAnimated(true, completion: nil)
 	}
 }
